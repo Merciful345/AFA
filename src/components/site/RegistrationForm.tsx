@@ -2,9 +2,9 @@
 
 import { useState, type FormEvent } from "react";
 import { Loader2 } from "lucide-react";
-import { REGISTRATION_FEE_ARS, formatArs } from "@/lib/prizes";
+import { formatArs } from "@/lib/prizes";
 
-export default function RegistrationForm() {
+export default function RegistrationForm({ fee }: { fee: number }) {
   const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
 
@@ -145,7 +145,7 @@ export default function RegistrationForm() {
         className="flex w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-bg0 transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-60"
       >
         {status === "submitting" && <Loader2 className="h-4 w-4 animate-spin" />}
-        {status === "submitting" ? "Redirigiendo a Mercado Pago…" : `Pagar inscripción — ${formatArs(REGISTRATION_FEE_ARS)}`}
+        {status === "submitting" ? "Redirigiendo a Mercado Pago…" : `Pagar inscripción — ${formatArs(fee)}`}
       </button>
 
       <p className="text-center text-xs text-t4">

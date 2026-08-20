@@ -5,7 +5,6 @@ import {
   WebhookSignatureValidator,
   InvalidWebhookSignatureError,
 } from "mercadopago";
-import { REGISTRATION_FEE_ARS } from "./prizes";
 
 export { InvalidWebhookSignatureError };
 
@@ -17,7 +16,7 @@ function siteUrl() {
   return process.env.NEXT_PUBLIC_SITE_URL!;
 }
 
-export async function createRegistrationPreference(registrationId: string) {
+export async function createRegistrationPreference(registrationId: string, unitPrice: number) {
   // Mercado Pago exige https en las back_urls para poder usar auto_return
   // (rechaza la preference entera si no). En local (http://localhost) lo
   // omitimos: el pago funciona igual, el usuario solo tiene que tocar
@@ -32,7 +31,7 @@ export async function createRegistrationPreference(registrationId: string) {
           title: "Inscripción AFA — Torneo de Aura Farming",
           quantity: 1,
           currency_id: "ARS",
-          unit_price: REGISTRATION_FEE_ARS,
+          unit_price: unitPrice,
         },
       ],
       external_reference: registrationId,

@@ -1,33 +1,33 @@
-import { REGISTRATION_FEE_ARS, formatArs } from "@/lib/prizes";
+import { formatArs } from "@/lib/prizes";
 
-const steps = [
-  {
-    title: "Inscribite",
-    text: `Pagás tu entrada (${formatArs(REGISTRATION_FEE_ARS)}) y quedás anotado en el bracket del torneo.`,
-  },
-  {
-    title: "El día del evento",
-    text: "Se arma el cuadro de enfrentamientos: duelos de a uno, cara a cara.",
-  },
-  {
-    title: "Mostrás tu aura",
-    text: "Cada duelo es en vivo — bailás, posás, hacés lo tuyo. Sin libreto, sin ensayo.",
-  },
-  {
-    title: "El público decide",
-    text: "La reacción de la gente en el momento define quién avanza a la siguiente ronda.",
-  },
-  {
-    title: "Rondas eliminatorias",
-    text: "Así, duelo tras duelo, hasta que quedan los dos finalistas.",
-  },
-  {
-    title: "Gran final",
-    text: "Un ganador, un segundo puesto. Los dos se llevan premio.",
-  },
-];
+export default function Rules({ fee }: { fee: number }) {
+  const steps = [
+    {
+      title: "Inscribite",
+      text: `Pagás tu entrada (${formatArs(fee)}) y quedás anotado en el bracket del torneo.`,
+    },
+    {
+      title: "El día del evento",
+      text: "Se arma el cuadro de enfrentamientos: duelos de a uno, cara a cara.",
+    },
+    {
+      title: "Mostrás tu aura",
+      text: "Cada duelo es en vivo — bailás, posás, hacés lo tuyo. Sin libreto, sin ensayo.",
+    },
+    {
+      title: "El público decide",
+      text: "La reacción de la gente en el momento define quién avanza a la siguiente ronda.",
+    },
+    {
+      title: "Rondas eliminatorias",
+      text: "Así, duelo tras duelo, hasta que quedan los dos finalistas.",
+    },
+    {
+      title: "Gran final",
+      text: "Un ganador, un segundo puesto. Los dos se llevan premio.",
+    },
+  ];
 
-export default function Rules() {
   return (
     <section id="reglas" className="border-y border-border bg-bg1/60">
       <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">

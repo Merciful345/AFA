@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { Calendar, MapPin, Sparkles } from "lucide-react";
-import { REGISTRATION_FEE_ARS, formatArs } from "@/lib/prizes";
+import { formatArs } from "@/lib/prizes";
 
-export default function Hero() {
+export default function Hero({ fee }: { fee: number }) {
   return (
     <section id="top" className="relative isolate overflow-hidden">
       <div
@@ -46,7 +46,7 @@ export default function Hero() {
             href="#inscripcion"
             className="animate-pulse-ring rounded-full bg-accent px-8 py-3.5 text-sm font-bold uppercase tracking-wide text-bg0 transition-colors hover:bg-accent-hover"
           >
-            Inscribirme — {formatArs(REGISTRATION_FEE_ARS)}
+            Inscribirme — {formatArs(fee)}
           </a>
           <a
             href="#reglas"

@@ -1,7 +1,8 @@
 import { createClient } from "@supabase/supabase-js";
-import { REGISTRATION_FEE_ARS } from "./prizes";
+import type { PrizeSettings } from "./prizes";
 
 export type RegistrationStatus = "pending" | "paid" | "rejected" | "cancelled";
+export type SiteSettings = PrizeSettings;
 
 export interface Registration {
   id: string;
@@ -42,6 +43,20 @@ export async function getPaidCount(): Promise<number> {
   return count ?? 0;
 }
 
+export async function getSettings(): Promise<SiteSettings> {
+  const { data, error } = await supabaseAdmin.from("settings").select("*").eq("id", 1).single();
+
+  if (error) throw error;
+  return {
+    registration_fee: data.registration_fee,
+    prize_mode: data.prize_mode,
+    house_cut_percentage: Number(data.house_cut_percentage),
+    first_place_share: Number(data.first_place_share),
+    fixed_first_prize: data.fixed_first_prize,
+    fixed_second_prize: data.fixed_second_prize,
+  };
+}
+
 export async function createPendingRegistration(input: {
   full_name: string;
   apodo?: string | null;
@@ -49,6 +64,7 @@ export async function createPendingRegistration(input: {
   phone: string;
   instagram?: string | null;
   email: string;
+  amount: number;
 }): Promise<Registration> {
   const { data, error } = await supabaseAdmin
     .from("registrations")
@@ -60,7 +76,7 @@ export async function createPendingRegistration(input: {
       instagram: input.instagram || null,
       email: input.email,
       status: "pending",
-      amount: REGISTRATION_FEE_ARS,
+      amount: input.amount,
     })
     .select()
     .single();

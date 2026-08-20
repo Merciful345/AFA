@@ -1,9 +1,15 @@
 import { Trophy, Medal } from "lucide-react";
-import { calculatePrizes, formatArs } from "@/lib/prizes";
+import { formatArs } from "@/lib/prizes";
 
-export default function Prizes({ paidCount }: { paidCount: number }) {
-  const { first, second } = calculatePrizes(paidCount);
-
+export default function Prizes({
+  paidCount,
+  first,
+  second,
+}: {
+  paidCount: number;
+  first: number;
+  second: number;
+}) {
   return (
     <section id="premios" className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
       <div className="mx-auto max-w-2xl text-center">

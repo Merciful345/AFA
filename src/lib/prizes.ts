@@ -1,13 +1,24 @@
-export const REGISTRATION_FEE_ARS = 50;
+export interface PrizeSettings {
+  registration_fee: number;
+  prize_mode: "dynamic" | "fixed";
+  house_cut_percentage: number;
+  first_place_share: number;
+  fixed_first_prize: number;
+  fixed_second_prize: number;
+}
 
-const FIRST_PRIZE_PER_REGISTRANT = 250;
-const SECOND_PRIZE_PER_REGISTRANT = 100;
+export function calculatePrizes(settings: PrizeSettings, paidCount: number) {
+  if (settings.prize_mode === "fixed") {
+    return { first: settings.fixed_first_prize, second: settings.fixed_second_prize };
+  }
 
-export function calculatePrizes(paidCount: number) {
-  return {
-    first: FIRST_PRIZE_PER_REGISTRANT * paidCount,
-    second: SECOND_PRIZE_PER_REGISTRANT * paidCount,
-  };
+  const poolExact =
+    (paidCount * settings.registration_fee * (100 - settings.house_cut_percentage)) / 100;
+  const pool = Math.round(poolExact);
+  const first = Math.round((pool * settings.first_place_share) / 100);
+  const second = pool - first;
+
+  return { first, second };
 }
 
 export function formatArs(amount: number) {

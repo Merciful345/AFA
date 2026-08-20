@@ -40,7 +40,14 @@
       "Bash(curl -s -X POST \"https://afa-three.vercel.app/api/inscripciones\" -H \"Content-Type: application/json\" -d '{\"full_name\":\"Check Deploy\",\"phone\":\"3810000009\"}')",
       "Bash(curl -s -w \"\\\\nHTTP %{http_code}\\\\n\" -X POST \"https://afa-three.vercel.app/api/inscripciones\" -H \"Content-Type: application/json\" -d '{\"full_name\":\"Check Deploy\",\"phone\":\"3810000009\"}')",
       "Bash(curl -s -X POST \"https://afa-three.vercel.app/api/mercadopago/webhook\" -H \"Content-Type: application/json\" -d '{}')",
-      "Bash(curl -s \"https://afa-three.vercel.app/inscripcion/exito\")"
+      "Bash(curl -s \"https://afa-three.vercel.app/inscripcion/exito\")",
+      "Bash(curl -s https://afa-three.vercel.app/)",
+      "Bash(npm run *)",
+      "Bash(grep -o '\\\\$[0-9]*')",
+      "Bash(grep -oP '\\\\$\\\\s*\\\\d+')",
+      "Bash(curl -s http://localhost:3000/ -o /tmp/afa_check.html -w \"HTTP %{http_code}\\\\n\")",
+      "Bash(grep -o \"Inscribirme.\\\\{0,60\\\\}\" /tmp/afa_check.html)",
+      "Bash(grep -o \"Pagás tu entrada.\\\\{0,40\\\\}\" /tmp/afa_check.html)"
     ],
     "additionalDirectories": [
       "c:\\Users\\Emanuel\\OneDrive\\Desktop\\AFA - AURA\\_tmp"

@@ -1,4 +1,4 @@
-import { createPendingRegistration, attachPreferenceId, markRegistrationCancelled } from "@/lib/supabase";
+import { createPendingRegistration, attachPreferenceId, markRegistrationCancelled, getSettings } from "@/lib/supabase";
 import { createRegistrationPreference } from "@/lib/mercadopago";
 
 function clean(value: unknown, maxLength: number): string {
@@ -25,6 +25,11 @@ export async function POST(request: Request) {
     );
   }
 
+  // Sin try/catch acá a propósito: si no podemos leer el precio actual, es
+  // preferible que la inscripción falle entera a que cobre un monto viejo
+  // o incorrecto.
+  const { registration_fee: amount } = await getSettings();
+
   let registration;
   try {
     registration = await createPendingRegistration({
@@ -34,6 +39,7 @@ export async function POST(request: Request) {
       phone,
       instagram: instagram || null,
       email,
+      amount,
     });
   } catch (err) {
     console.error("No se pudo guardar la inscripción", err);
@@ -41,7 +47,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const preference = await createRegistrationPreference(registration.id);
+    const preference = await createRegistrationPreference(registration.id, amount);
     await attachPreferenceId(registration.id, preference.id);
     return Response.json({ id: registration.id, init_point: preference.init_point }, { status: 201 });
   } catch (err) {
