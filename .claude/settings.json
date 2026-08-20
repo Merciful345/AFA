@@ -35,7 +35,10 @@
       "Bash(curl -s -w \"\\\\nHTTP %{http_code}\\\\n\" -X POST \"https://afa-three.vercel.app/api/mercadopago/webhook\" -H \"Content-Type: application/json\" -d '{\"action\":\"payment.updated\",\"type\":\"payment\",\"data\":{\"id\":\"123456\"}}')",
       "Bash(curl -s -o /dev/null -w \"homepage HTTP %{http_code}\\\\n\" https://afa-three.vercel.app/)",
       "Bash(curl -s -w \"\\\\nwebhook \\(no sig\\) HTTP %{http_code}\\\\n\" -X POST \"https://afa-three.vercel.app/api/mercadopago/webhook\" -H \"Content-Type: application/json\" -d '{}')",
-      "Bash(psql --version)"
+      "Bash(psql --version)",
+      "Bash(curl -s -w \"\\\\nregistro sin dni HTTP %{http_code}\\\\n\" -X POST \"https://afa-three.vercel.app/api/inscripciones\" -H \"Content-Type: application/json\" -d '{\"full_name\":\"Check Deploy\",\"phone\":\"3810000009\"}')",
+      "Bash(curl -s -X POST \"https://afa-three.vercel.app/api/inscripciones\" -H \"Content-Type: application/json\" -d '{\"full_name\":\"Check Deploy\",\"phone\":\"3810000009\"}')",
+      "Bash(curl -s -w \"\\\\nHTTP %{http_code}\\\\n\" -X POST \"https://afa-three.vercel.app/api/inscripciones\" -H \"Content-Type: application/json\" -d '{\"full_name\":\"Check Deploy\",\"phone\":\"3810000009\"}')"
     ],
     "additionalDirectories": [
       "c:\\Users\\Emanuel\\OneDrive\\Desktop\\AFA - AURA\\_tmp"

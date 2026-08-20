@@ -17,10 +17,30 @@ function mapPaymentStatus(mpStatus: string | undefined): RegistrationStatus | nu
   }
 }
 
+interface MpWebhookBody {
+  type?: string;
+  action?: string;
+  data?: { id?: string | number };
+}
+
 export async function POST(request: Request) {
   const url = new URL(request.url);
-  const type = url.searchParams.get("type");
-  const dataId = url.searchParams.get("data.id");
+  const body: MpWebhookBody | null = await request.json().catch(() => null);
+
+  // MP documenta que type/data.id van en la query string, pero en la
+  // práctica las notificaciones reales de pago también los mandan en el
+  // body — y a veces SOLO ahí. Leemos de los dos lugares para no
+  // depender de cuál formato use esta cuenta en particular.
+  const type = url.searchParams.get("type") || body?.type || (body?.action?.startsWith("payment") ? "payment" : null);
+  const dataId = url.searchParams.get("data.id") || (body?.data?.id != null ? String(body.data.id) : null);
+
+  console.log("Webhook MP recibido", {
+    query: Object.fromEntries(url.searchParams),
+    body,
+    hasSignature: Boolean(request.headers.get("x-signature")),
+    resolvedType: type,
+    resolvedDataId: dataId,
+  });
 
   const signatureCheck = () =>
     verifyWebhookSignature({
