@@ -1,4 +1,5 @@
 import RegistrationForm from "./RegistrationForm";
+import { REGISTRATION_FEE_ARS, formatArs } from "@/lib/prizes";
 
 export default function Registration() {
   return (
@@ -10,7 +11,7 @@ export default function Registration() {
           </h2>
           <p className="mt-4 text-t2">
             Tu lugar en el bracket por{" "}
-            <span className="font-semibold text-accent">$3.000</span>.
+            <span className="font-semibold text-accent">{formatArs(REGISTRATION_FEE_ARS)}</span>.
           </p>
         </div>
 

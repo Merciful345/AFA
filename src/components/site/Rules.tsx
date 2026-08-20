@@ -1,7 +1,9 @@
+import { REGISTRATION_FEE_ARS, formatArs } from "@/lib/prizes";
+
 const steps = [
   {
     title: "Inscribite",
-    text: "Pagás tu entrada ($3.000) y quedás anotado en el bracket del torneo.",
+    text: `Pagás tu entrada (${formatArs(REGISTRATION_FEE_ARS)}) y quedás anotado en el bracket del torneo.`,
   },
   {
     title: "El día del evento",

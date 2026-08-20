@@ -39,7 +39,8 @@
       "Bash(curl -s -w \"\\\\nregistro sin dni HTTP %{http_code}\\\\n\" -X POST \"https://afa-three.vercel.app/api/inscripciones\" -H \"Content-Type: application/json\" -d '{\"full_name\":\"Check Deploy\",\"phone\":\"3810000009\"}')",
       "Bash(curl -s -X POST \"https://afa-three.vercel.app/api/inscripciones\" -H \"Content-Type: application/json\" -d '{\"full_name\":\"Check Deploy\",\"phone\":\"3810000009\"}')",
       "Bash(curl -s -w \"\\\\nHTTP %{http_code}\\\\n\" -X POST \"https://afa-three.vercel.app/api/inscripciones\" -H \"Content-Type: application/json\" -d '{\"full_name\":\"Check Deploy\",\"phone\":\"3810000009\"}')",
-      "Bash(curl -s -X POST \"https://afa-three.vercel.app/api/mercadopago/webhook\" -H \"Content-Type: application/json\" -d '{}')"
+      "Bash(curl -s -X POST \"https://afa-three.vercel.app/api/mercadopago/webhook\" -H \"Content-Type: application/json\" -d '{}')",
+      "Bash(curl -s \"https://afa-three.vercel.app/inscripcion/exito\")"
     ],
     "additionalDirectories": [
       "c:\\Users\\Emanuel\\OneDrive\\Desktop\\AFA - AURA\\_tmp"

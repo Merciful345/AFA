@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { REGISTRATION_FEE_ARS } from "./prizes";
 
 export type RegistrationStatus = "pending" | "paid" | "rejected" | "cancelled";
 
@@ -59,7 +60,7 @@ export async function createPendingRegistration(input: {
       instagram: input.instagram || null,
       email: input.email,
       status: "pending",
-      amount: 3000,
+      amount: REGISTRATION_FEE_ARS,
     })
     .select()
     .single();
