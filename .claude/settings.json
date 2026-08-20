@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c ' *)",
+      "Bash(node -e ' *)",
+      "Bash(mkdir -p _tmp)",
+      "Bash(mv AFA.svg _tmp/AFA.svg)",
+      "Bash(npx --yes create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm)",
+      "Bash(npx --yes create-next-app@latest --help)",
+      "Bash(npx --yes create-next-app@latest afa-aura --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm)",
+      "Bash(mv _tmp/AFA.svg public/AFA.svg)",
+      "Bash(rmdir _tmp)",
+      "Bash(cd \"c:\\\\Users\\\\Emanuel\\\\OneDrive\\\\Desktop\\\\AFA - AURA\" && rmdir _tmp && cat CLAUDE.md && echo \"---AGENTS---\" && cat AGENTS.md)",
+      "Bash(rm -f _test_render.png)",
+      "Bash(node -e \"console.log\\(require\\('./node_modules/mercadopago/package.json'\\).version\\)\")",
+      "Bash(node -e \"const l = require\\('lucide-react'\\); console.log\\(Object.keys\\(l\\).filter\\(k => /insta|social|at.?sign/i.test\\(k\\)\\)\\)\")",
+      "Bash(tee /tmp/afa_dev.log)",
+      "Bash(curl -s -o /tmp/afa_home.html -w \"HTTP %{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(tasklist //FI \"PID eq 15480\")",
+      "Bash(jobs -l)",
+      "Bash(node \"C:\\\\Users\\\\Emanuel\\\\.claude\\\\skills\\\\browser-automation\\\\browser.mjs\" http://localhost:3000/ --screenshot \"C:\\\\Users\\\\Emanuel\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Emanuel-OneDrive-Desktop-AFA---AURA\\\\66aa615b-71ae-4460-97f1-6e13dcd9a4a7\\\\scratchpad\\\\afa_home.png\" --timeout 30000)",
+      "Bash(node \"C:\\\\Users\\\\Emanuel\\\\.claude\\\\skills\\\\browser-automation\\\\browser.mjs\" http://localhost:3000/ --script \"C:\\\\Users\\\\Emanuel\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Emanuel-OneDrive-Desktop-AFA---AURA\\\\66aa615b-71ae-4460-97f1-6e13dcd9a4a7\\\\scratchpad\\\\mobile.mjs\")",
+      "Bash(curl -s -o /tmp/afa_home2.html -w \"HTTP %{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(node \"C:\\\\Users\\\\Emanuel\\\\.claude\\\\skills\\\\browser-automation\\\\browser.mjs\" http://localhost:3000/ --screenshot \"C:\\\\Users\\\\Emanuel\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Emanuel-OneDrive-Desktop-AFA---AURA\\\\66aa615b-71ae-4460-97f1-6e13dcd9a4a7\\\\scratchpad\\\\afa_home_v2.png\" --timeout 30000)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(curl -s -w \"\\\\nHTTP %{http_code}\\\\n\" -X POST http://localhost:3000/api/inscripciones -H \"Content-Type: application/json\" -d '{\"full_name\":\"Test Usuario\",\"phone\":\"3810000000\",\"instagram\":\"\",\"email\":\"\"}')",
+      "Bash(curl -s -w \"\\\\nHTTP %{http_code}\\\\n\" -X POST http://localhost:3000/api/inscripciones -H \"Content-Type: application/json\" -d '{\"full_name\":\"Test Usuario2\",\"phone\":\"3810000001\",\"instagram\":\"\",\"email\":\"\"}')",
+      "Bash(curl -s -w \"\\\\nHTTP %{http_code}\\\\n\" -X POST http://localhost:3000/api/inscripciones -H \"Content-Type: application/json\" -d '{\"full_name\":\"Test Usuario3\",\"phone\":\"3810000002\",\"instagram\":\"\",\"email\":\"\"}')",
+      "WebFetch(domain:www.mercadopago.com.ar)",
+      "Bash(npx --yes vercel --version)",
+      "Bash(npx --yes vercel whoami)",
+      "Bash(git check-ignore *)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\Emanuel\\OneDrive\\Desktop\\AFA - AURA\\_tmp"
+    ]
+  }
+}
