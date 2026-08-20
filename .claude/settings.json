@@ -29,7 +29,10 @@
       "WebFetch(domain:www.mercadopago.com.ar)",
       "Bash(npx --yes vercel --version)",
       "Bash(npx --yes vercel whoami)",
-      "Bash(git check-ignore *)"
+      "Bash(git check-ignore *)",
+      "Bash(git commit -m ' *)",
+      "Bash(curl -s -w \"\\\\nHTTP %{http_code}\\\\n\" -X POST https://afa-three.vercel.app/api/inscripciones -H \"Content-Type: application/json\" -d '{\"full_name\":\"Diag Vercel\",\"phone\":\"3810000003\",\"instagram\":\"\",\"email\":\"\"}')",
+      "Bash(curl -s -w \"\\\\nHTTP %{http_code}\\\\n\" -X POST \"https://afa-three.vercel.app/api/mercadopago/webhook\" -H \"Content-Type: application/json\" -d '{\"action\":\"payment.updated\",\"type\":\"payment\",\"data\":{\"id\":\"123456\"}}')"
     ],
     "additionalDirectories": [
       "c:\\Users\\Emanuel\\OneDrive\\Desktop\\AFA - AURA\\_tmp"

@@ -43,11 +43,18 @@ export async function POST(request: Request) {
     return new Response("OK", { status: 200 });
   }
 
-  const payment = await getPayment(dataId);
-  const status = mapPaymentStatus(payment.status);
+  // Los simuladores de notificaciones (y algunos reintentos de MP) mandan
+  // ids de pago que no existen de verdad — no dejamos que eso tire un 500,
+  // solo lo logueamos y respondemos OK igual.
+  try {
+    const payment = await getPayment(dataId);
+    const status = mapPaymentStatus(payment.status);
 
-  if (status && payment.external_reference) {
-    await updateRegistrationStatusByPayment(payment.external_reference, status, String(payment.id));
+    if (status && payment.external_reference) {
+      await updateRegistrationStatusByPayment(payment.external_reference, status, String(payment.id));
+    }
+  } catch (err) {
+    console.error("No se pudo procesar la notificación de pago", dataId, err);
   }
 
   return new Response("OK", { status: 200 });
