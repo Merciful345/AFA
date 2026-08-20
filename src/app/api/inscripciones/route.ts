@@ -12,21 +12,28 @@ export async function POST(request: Request) {
   }
 
   const full_name = clean(body.full_name, 120);
+  const apodo = clean(body.apodo, 60);
+  const dni = clean(body.dni, 20);
   const phone = clean(body.phone, 40);
   const instagram = clean(body.instagram, 60);
   const email = clean(body.email, 160);
 
-  if (!full_name || !phone) {
-    return Response.json({ error: "Nombre completo y WhatsApp son obligatorios" }, { status: 400 });
+  if (!full_name || !dni || !phone || !email) {
+    return Response.json(
+      { error: "Nombre completo, DNI, WhatsApp y email son obligatorios" },
+      { status: 400 },
+    );
   }
 
   let registration;
   try {
     registration = await createPendingRegistration({
       full_name,
+      apodo: apodo || null,
+      dni,
       phone,
       instagram: instagram || null,
-      email: email || null,
+      email,
     });
   } catch (err) {
     console.error("No se pudo guardar la inscripción", err);

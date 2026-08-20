@@ -21,6 +21,8 @@ export default function RegistrationForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           full_name: data.get("full_name"),
+          apodo: data.get("apodo"),
+          dni: data.get("dni"),
           phone: data.get("phone"),
           instagram: data.get("instagram"),
           email: data.get("email"),
@@ -54,6 +56,37 @@ export default function RegistrationForm() {
         />
       </div>
 
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div>
+          <label htmlFor="dni" className="mb-1.5 block text-sm font-medium text-t2">
+            DNI
+          </label>
+          <input
+            id="dni"
+            name="dni"
+            type="text"
+            inputMode="numeric"
+            required
+            maxLength={20}
+            className="w-full rounded-xl border border-border2 bg-bg2 px-4 py-3 text-t1 outline-none transition-colors placeholder:text-t4 focus:border-accent"
+            placeholder="Ej: 40123456"
+          />
+        </div>
+        <div>
+          <label htmlFor="apodo" className="mb-1.5 block text-sm font-medium text-t2">
+            Apodo <span className="text-t4">(opcional)</span>
+          </label>
+          <input
+            id="apodo"
+            name="apodo"
+            type="text"
+            maxLength={60}
+            className="w-full rounded-xl border border-border2 bg-bg2 px-4 py-3 text-t1 outline-none transition-colors placeholder:text-t4 focus:border-accent"
+            placeholder="Como te van a anunciar"
+          />
+        </div>
+      </div>
+
       <div>
         <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-t2">
           WhatsApp
@@ -71,6 +104,20 @@ export default function RegistrationForm() {
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
+          <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-t2">
+            Email
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            maxLength={160}
+            className="w-full rounded-xl border border-border2 bg-bg2 px-4 py-3 text-t1 outline-none transition-colors placeholder:text-t4 focus:border-accent"
+            placeholder="vos@ejemplo.com"
+          />
+        </div>
+        <div>
           <label htmlFor="instagram" className="mb-1.5 block text-sm font-medium text-t2">
             Instagram <span className="text-t4">(opcional)</span>
           </label>
@@ -81,19 +128,6 @@ export default function RegistrationForm() {
             maxLength={60}
             className="w-full rounded-xl border border-border2 bg-bg2 px-4 py-3 text-t1 outline-none transition-colors placeholder:text-t4 focus:border-accent"
             placeholder="@tu_usuario"
-          />
-        </div>
-        <div>
-          <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-t2">
-            Email <span className="text-t4">(opcional)</span>
-          </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            maxLength={160}
-            className="w-full rounded-xl border border-border2 bg-bg2 px-4 py-3 text-t1 outline-none transition-colors placeholder:text-t4 focus:border-accent"
-            placeholder="vos@ejemplo.com"
           />
         </div>
       </div>

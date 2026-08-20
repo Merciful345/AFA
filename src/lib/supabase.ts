@@ -5,9 +5,11 @@ export type RegistrationStatus = "pending" | "paid" | "rejected" | "cancelled";
 export interface Registration {
   id: string;
   full_name: string;
+  apodo: string | null;
+  dni: string;
   phone: string;
   instagram: string | null;
-  email: string | null;
+  email: string;
   status: RegistrationStatus;
   amount: number;
   mp_preference_id: string | null;
@@ -41,17 +43,21 @@ export async function getPaidCount(): Promise<number> {
 
 export async function createPendingRegistration(input: {
   full_name: string;
+  apodo?: string | null;
+  dni: string;
   phone: string;
   instagram?: string | null;
-  email?: string | null;
+  email: string;
 }): Promise<Registration> {
   const { data, error } = await supabaseAdmin
     .from("registrations")
     .insert({
       full_name: input.full_name,
+      apodo: input.apodo || null,
+      dni: input.dni,
       phone: input.phone,
       instagram: input.instagram || null,
-      email: input.email || null,
+      email: input.email,
       status: "pending",
       amount: 3000,
     })
