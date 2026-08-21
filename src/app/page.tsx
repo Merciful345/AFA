@@ -17,6 +17,7 @@ const FALLBACK_SETTINGS: PrizeSettings = {
   first_place_share: 0,
   fixed_first_prize: 0,
   fixed_second_prize: 0,
+  second_place_enabled: true,
 };
 
 export default async function Home() {
@@ -34,7 +35,12 @@ export default async function Home() {
         <Hero fee={settings.registration_fee} />
         <About />
         <Rules fee={settings.registration_fee} />
-        <Prizes paidCount={paidCount} first={first} second={second} />
+        <Prizes
+          paidCount={paidCount}
+          first={first}
+          second={second}
+          secondPlaceEnabled={settings.second_place_enabled}
+        />
         <Registration fee={settings.registration_fee} />
       </main>
       <Footer />

@@ -33,6 +33,12 @@ export const supabaseAdmin = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY || "placeholder-key",
 );
 
+export async function getRegistrationById(id: string): Promise<Registration | null> {
+  const { data, error } = await supabaseAdmin.from("registrations").select("*").eq("id", id).maybeSingle();
+  if (error) throw error;
+  return data;
+}
+
 export async function getPaidCount(): Promise<number> {
   const { count, error } = await supabaseAdmin
     .from("registrations")
@@ -54,6 +60,7 @@ export async function getSettings(): Promise<SiteSettings> {
     first_place_share: Number(data.first_place_share),
     fixed_first_prize: data.fixed_first_prize,
     fixed_second_prize: data.fixed_second_prize,
+    second_place_enabled: data.second_place_enabled,
   };
 }
 

@@ -5,10 +5,12 @@ export default function Prizes({
   paidCount,
   first,
   second,
+  secondPlaceEnabled,
 }: {
   paidCount: number;
   first: number;
   second: number;
+  secondPlaceEnabled: boolean;
 }) {
   return (
     <section id="premios" className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
@@ -22,7 +24,7 @@ export default function Prizes({
         </p>
       </div>
 
-      <div className="mt-12 grid gap-6 sm:grid-cols-2">
+      <div className={`mt-12 grid gap-6 ${secondPlaceEnabled ? "sm:grid-cols-2" : "mx-auto max-w-sm"}`}>
         <div className="rounded-2xl border border-accent/40 bg-gradient-to-b from-accent-light to-transparent p-8 text-center">
           <Trophy className="mx-auto h-9 w-9 text-accent" />
           <p className="mt-3 text-sm font-semibold uppercase tracking-widest text-t3">
@@ -33,15 +35,17 @@ export default function Prizes({
           </p>
         </div>
 
-        <div className="rounded-2xl border border-aura/30 bg-gradient-to-b from-aura-light to-transparent p-8 text-center">
-          <Medal className="mx-auto h-9 w-9 text-aura-hover" />
-          <p className="mt-3 text-sm font-semibold uppercase tracking-widest text-t3">
-            2do puesto
-          </p>
-          <p className="text-gradient-aura font-display mt-2 text-4xl font-bold sm:text-5xl">
-            {formatArs(second)}
-          </p>
-        </div>
+        {secondPlaceEnabled && (
+          <div className="rounded-2xl border border-aura/30 bg-gradient-to-b from-aura-light to-transparent p-8 text-center">
+            <Medal className="mx-auto h-9 w-9 text-aura-hover" />
+            <p className="mt-3 text-sm font-semibold uppercase tracking-widest text-t3">
+              2do puesto
+            </p>
+            <p className="text-gradient-aura font-display mt-2 text-4xl font-bold sm:text-5xl">
+              {formatArs(second)}
+            </p>
+          </div>
+        )}
       </div>
 
       <div className="mt-8 flex flex-col items-center gap-2 text-center">
