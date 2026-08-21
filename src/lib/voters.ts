@@ -1,3 +1,4 @@
+import crypto from "node:crypto";
 import { supabaseAdmin } from "./supabase";
 
 export interface Voter {
@@ -6,6 +7,7 @@ export interface Voter {
   email: string;
   ip_address: string | null;
   points: number;
+  password_hash: string;
   created_at: string;
 }
 
@@ -13,6 +15,20 @@ const MAX_VOTERS_PER_IP = 2;
 
 function normalizeEmail(email: string): string {
   return email.trim().toLowerCase();
+}
+
+export function hashPassword(password: string): string {
+  const salt = crypto.randomBytes(16).toString("hex");
+  const hash = crypto.scryptSync(password, salt, 64).toString("hex");
+  return `${salt}:${hash}`;
+}
+
+export function verifyPassword(password: string, stored: string): boolean {
+  const [salt, hashHex] = stored.split(":");
+  if (!salt || !hashHex) return false;
+  const hash = crypto.scryptSync(password, salt, 64);
+  const expected = Buffer.from(hashHex, "hex");
+  return hash.length === expected.length && crypto.timingSafeEqual(hash, expected);
 }
 
 export async function findVoterByEmail(email: string): Promise<Voter | null> {
@@ -42,7 +58,12 @@ export async function countVotersByIp(ip: string): Promise<number> {
 
 export class VoterLimitError extends Error {}
 
-export async function createVoter(input: { name: string; email: string; ip: string | null }): Promise<Voter> {
+export async function createVoter(input: {
+  name: string;
+  email: string;
+  password: string;
+  ip: string | null;
+}): Promise<Voter> {
   if (input.ip) {
     const existing = await countVotersByIp(input.ip);
     if (existing >= MAX_VOTERS_PER_IP) {
@@ -52,7 +73,12 @@ export async function createVoter(input: { name: string; email: string; ip: stri
 
   const { data, error } = await supabaseAdmin
     .from("voters")
-    .insert({ name: input.name, email: normalizeEmail(input.email), ip_address: input.ip })
+    .insert({
+      name: input.name,
+      email: normalizeEmail(input.email),
+      ip_address: input.ip,
+      password_hash: hashPassword(input.password),
+    })
     .select()
     .single();
   if (error) throw error;

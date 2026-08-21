@@ -100,7 +100,12 @@
       "Bash(grep -o \"Ronda 1.\\\\{0,300\\\\}\")",
       "Bash(curl -sv https://gestion.afa-tuc.corelix.com.ar/login -o /dev/null)",
       "Bash(node \"C:\\\\Users\\\\Emanuel\\\\.claude\\\\skills\\\\browser-automation\\\\browser.mjs\" http://localhost:3000/ --script \"C:\\\\Users\\\\Emanuel\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Emanuel-OneDrive-Desktop-AFA---AURA\\\\66aa615b-71ae-4460-97f1-6e13dcd9a4a7\\\\scratchpad\\\\nav_widget_qa.mjs\")",
-      "Bash(node \"C:\\\\Users\\\\Emanuel\\\\.claude\\\\skills\\\\browser-automation\\\\browser.mjs\" http://localhost:3000/ --screenshot \"C:\\\\Users\\\\Emanuel\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Emanuel-OneDrive-Desktop-AFA---AURA\\\\66aa615b-71ae-4460-97f1-6e13dcd9a4a7\\\\scratchpad\\\\home_virtual.png\" --timeout 30000)"
+      "Bash(node \"C:\\\\Users\\\\Emanuel\\\\.claude\\\\skills\\\\browser-automation\\\\browser.mjs\" http://localhost:3000/ --screenshot \"C:\\\\Users\\\\Emanuel\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Emanuel-OneDrive-Desktop-AFA---AURA\\\\66aa615b-71ae-4460-97f1-6e13dcd9a4a7\\\\scratchpad\\\\home_virtual.png\" --timeout 30000)",
+      "Bash(curl -s -c /tmp/voter_pw_cookies.txt -w \"\\\\nHTTP %{http_code}\\\\n\" -X POST http://localhost:3000/api/votantes -H \"Content-Type: application/json\" -d '{\"name\":\"Test Pw\",\"email\":\"testpw@example.com\",\"password\":\"correcta123\"}')",
+      "Bash(curl -s -w \"\\\\nHTTP %{http_code}\\\\n\" -X POST http://localhost:3000/api/votantes -H \"Content-Type: application/json\" -d '{\"name\":\"Test Pw\",\"email\":\"testpw@example.com\",\"password\":\"incorrecta\"}')",
+      "Bash(curl -s -w \"\\\\nHTTP %{http_code}\\\\n\" -X POST http://localhost:3000/api/votantes -H \"Content-Type: application/json\" -d '{\"name\":\"Test Pw\",\"email\":\"testpw@example.com\",\"password\":\"correcta123\"}')",
+      "Bash(curl -s -w \"\\\\nHTTP %{http_code}\\\\n\" -X POST http://localhost:3000/api/votantes -H \"Content-Type: application/json\" -d '{\"name\":\"Test2\",\"email\":\"test2@example.com\",\"password\":\"abc\"}')",
+      "Bash(curl -s -w \"\\\\nHTTP %{http_code}\\\\n\" -X POST http://localhost:3000/api/votantes -H \"Content-Type: application/json\" -d '{\"name\":\"Test Pw\",\"email\":\"testpw@example.com\",\"password\":\"vDZJlIoy\"}')"
     ],
     "additionalDirectories": [
       "c:\\Users\\Emanuel\\OneDrive\\Desktop\\AFA - AURA\\_tmp"
