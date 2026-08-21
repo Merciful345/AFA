@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { UserRound, LogOut } from "lucide-react";
 import VoterAuthWidget from "./VoterAuthWidget";
 
@@ -21,9 +22,9 @@ export default function NavAccountWidget({
   if (voter) {
     return (
       <div className="flex items-center gap-2 text-sm">
-        <span className="hidden text-t2 sm:inline">
+        <Link href="/perfil" className="hidden text-t2 transition-colors hover:text-accent sm:inline">
           <span className="font-semibold text-t1">{voter.name}</span> · {voter.points} pts
-        </span>
+        </Link>
         <button
           onClick={handleLogout}
           title="Salir"
