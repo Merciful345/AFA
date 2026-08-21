@@ -118,7 +118,8 @@
       "Bash(node \"C:\\\\Users\\\\Emanuel\\\\.claude\\\\skills\\\\browser-automation\\\\browser.mjs\" \"http://localhost:3000/\" --script \"C:\\\\Users\\\\Emanuel\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Emanuel-OneDrive-Desktop-AFA---AURA\\\\66aa615b-71ae-4460-97f1-6e13dcd9a4a7\\\\scratchpad\\\\admin_premios_qa.mjs\")",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://afa-three.vercel.app/perfil)",
       "Bash(node \"C:\\\\Users\\\\Emanuel\\\\.claude\\\\skills\\\\browser-automation\\\\browser.mjs\" http://localhost:3000/ --screenshot \"C:\\\\Users\\\\Emanuel\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Emanuel-OneDrive-Desktop-AFA---AURA\\\\66aa615b-71ae-4460-97f1-6e13dcd9a4a7\\\\scratchpad\\\\home_v2.png\" --timeout 30000)",
-      "Bash(node \"C:\\\\Users\\\\Emanuel\\\\.claude\\\\skills\\\\browser-automation\\\\browser.mjs\" http://localhost:3000/ --script \"C:\\\\Users\\\\Emanuel\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Emanuel-OneDrive-Desktop-AFA---AURA\\\\66aa615b-71ae-4460-97f1-6e13dcd9a4a7\\\\scratchpad\\\\home_mobile.mjs\")"
+      "Bash(node \"C:\\\\Users\\\\Emanuel\\\\.claude\\\\skills\\\\browser-automation\\\\browser.mjs\" http://localhost:3000/ --script \"C:\\\\Users\\\\Emanuel\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Emanuel-OneDrive-Desktop-AFA---AURA\\\\66aa615b-71ae-4460-97f1-6e13dcd9a4a7\\\\scratchpad\\\\home_mobile.mjs\")",
+      "Bash(node \"C:\\\\Users\\\\Emanuel\\\\.claude\\\\skills\\\\browser-automation\\\\browser.mjs\" http://localhost:3000/ --screenshot \"C:\\\\Users\\\\Emanuel\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Emanuel-OneDrive-Desktop-AFA---AURA\\\\66aa615b-71ae-4460-97f1-6e13dcd9a4a7\\\\scratchpad\\\\home_v3.png\" --timeout 30000)"
     ],
     "additionalDirectories": [
       "c:\\Users\\Emanuel\\OneDrive\\Desktop\\AFA - AURA\\_tmp"

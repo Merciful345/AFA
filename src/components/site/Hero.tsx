@@ -2,7 +2,17 @@ import Image from "next/image";
 import { Calendar, Globe2, Video } from "lucide-react";
 import { formatArs } from "@/lib/prizes";
 
-export default function Hero({ fee }: { fee: number }) {
+export default function Hero({
+  fee,
+  paidCount,
+  currentRound,
+  firstPrize,
+}: {
+  fee: number;
+  paidCount: number;
+  currentRound: number | null;
+  firstPrize: number;
+}) {
   return (
     <section id="top" className="relative isolate overflow-hidden">
       <div
@@ -65,6 +75,21 @@ export default function Hero({ fee }: { fee: number }) {
             <Globe2 className="h-3.5 w-3.5 text-accent" />
             Participá desde donde estés
           </span>
+        </div>
+
+        <div className="mt-12 grid w-full max-w-lg grid-cols-3 divide-x divide-border rounded-2xl border border-border bg-bg1/60">
+          <div className="px-2 py-4 text-center">
+            <p className="font-display text-2xl font-bold text-t1 sm:text-3xl">{paidCount}</p>
+            <p className="mt-1 text-[11px] uppercase tracking-wide text-t4">Farmeadores</p>
+          </div>
+          <div className="px-2 py-4 text-center">
+            <p className="font-display text-2xl font-bold text-t1 sm:text-3xl">{currentRound ?? "—"}</p>
+            <p className="mt-1 text-[11px] uppercase tracking-wide text-t4">Ronda actual</p>
+          </div>
+          <div className="px-2 py-4 text-center">
+            <p className="font-display text-2xl font-bold text-accent sm:text-3xl">{formatArs(firstPrize)}</p>
+            <p className="mt-1 text-[11px] uppercase tracking-wide text-t4">Premio mayor</p>
+          </div>
         </div>
       </div>
     </section>

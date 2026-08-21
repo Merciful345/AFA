@@ -6,6 +6,7 @@ import LiveBracket from "@/components/site/LiveBracket";
 import Prizes from "@/components/site/Prizes";
 import Registration from "@/components/site/Registration";
 import VoterCta from "@/components/site/VoterCta";
+import Faq from "@/components/site/Faq";
 import Footer from "@/components/site/Footer";
 import { getPaidCount, getSettings } from "@/lib/supabase";
 import { calculatePrizes, type PrizeSettings } from "@/lib/prizes";
@@ -35,12 +36,14 @@ export default async function Home() {
   ]);
 
   const { first, second } = calculatePrizes(settings, paidCount);
+  const roundNumbers = Object.keys(rounds).map(Number);
+  const currentRound = roundNumbers.length > 0 ? Math.max(...roundNumbers) : null;
 
   return (
     <>
       <Nav />
       <main>
-        <Hero fee={settings.registration_fee} />
+        <Hero fee={settings.registration_fee} paidCount={paidCount} currentRound={currentRound} firstPrize={first} />
         <About />
         <Rules fee={settings.registration_fee} />
         <LiveBracket rounds={rounds} />
@@ -50,11 +53,12 @@ export default async function Home() {
           second={second}
           secondPlaceEnabled={settings.second_place_enabled}
         />
-        <Registration fee={settings.registration_fee} />
+        <Registration fee={settings.registration_fee} paidCount={paidCount} />
         <VoterCta
           rewards={rewards.map((r) => ({ ...r, imageUrl: rewardImageUrl(r.image_path) }))}
           topVoters={topVoters}
         />
+        <Faq />
       </main>
       <Footer />
     </>
