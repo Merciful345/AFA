@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { AtSign, Calendar, MapPin } from "lucide-react";
+import { AtSign, Calendar, Globe2 } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -27,8 +27,8 @@ export default function Footer() {
             Fecha: a confirmar
           </span>
           <span className="inline-flex items-center gap-1.5">
-            <MapPin className="h-3.5 w-3.5" />
-            Lugar: a confirmar
+            <Globe2 className="h-3.5 w-3.5" />
+            Torneo 100% virtual
           </span>
         </div>
 

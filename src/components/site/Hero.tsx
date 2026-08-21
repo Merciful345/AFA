@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Calendar, MapPin, Sparkles } from "lucide-react";
+import { Calendar, Globe2, Video } from "lucide-react";
 import { formatArs } from "@/lib/prizes";
 
 export default function Hero({ fee }: { fee: number }) {
@@ -25,20 +25,20 @@ export default function Hero({ fee }: { fee: number }) {
         />
 
         <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-border2 bg-bg2 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent">
-          <Sparkles className="h-3.5 w-3.5" />
-          Torneo presencial
+          <Video className="h-3.5 w-3.5" />
+          Torneo 100% virtual
         </span>
 
         <h1 className="font-display text-4xl font-bold leading-[1.1] text-t1 sm:text-6xl">
           Farmeá aura.
           <br />
-          <span className="text-gradient-accent">Ganá en vivo.</span>
+          <span className="text-gradient-accent">Demostralo en video.</span>
         </h1>
 
         <p className="mt-6 max-w-xl text-balance text-base text-t2 sm:text-lg">
-          El torneo donde tu presencia, tu flow y tu aura se ponen a prueba
-          frente al público. Rondas eliminatorias, el público decide, y los
-          dos mejores se llevan el pozo.
+          Subís tu video, el público vota quién tiene más aura, y avanzás en
+          el bracket duelo a duelo hasta la gran final. Los dos mejores se
+          llevan el pozo.
         </p>
 
         <div className="mt-9 flex flex-col items-center gap-3 sm:flex-row">
@@ -62,8 +62,8 @@ export default function Hero({ fee }: { fee: number }) {
             Fecha: a confirmar
           </span>
           <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-bg1 px-3 py-1.5">
-            <MapPin className="h-3.5 w-3.5 text-accent" />
-            Lugar: a confirmar
+            <Globe2 className="h-3.5 w-3.5 text-accent" />
+            Participá desde donde estés
           </span>
         </div>
       </div>

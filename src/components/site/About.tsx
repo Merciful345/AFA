@@ -1,20 +1,20 @@
-import { Users, Swords, MicVocal } from "lucide-react";
+import { Video, Swords, ThumbsUp } from "lucide-react";
 
 const cards = [
   {
-    icon: Users,
-    title: "Presencial",
-    text: "Nada de rankings ni pantallas. Todo pasa cara a cara, frente a la gente, el día del evento.",
+    icon: Video,
+    title: "100% virtual",
+    text: "Nada de trasladarte a ningún lado. Grabás tu video desde donde quieras y lo subís al sitio.",
   },
   {
     icon: Swords,
     title: "Por rondas",
-    text: "Eliminación directa. Cada duelo tiene un ganador que avanza, hasta llegar a la gran final.",
+    text: "Eliminación directa. Cada cruce se juega a mejor de 2 videos, hasta llegar a la gran final.",
   },
   {
-    icon: MicVocal,
+    icon: ThumbsUp,
     title: "El público manda",
-    text: "Vos mostrás tu aura. La reacción de la gente en el momento decide quién sigue en el bracket.",
+    text: "Mostrás tu aura en cámara. El público vota los videos y decide quién sigue en el bracket.",
   },
 ];
 
@@ -28,7 +28,7 @@ export default function About() {
         <p className="mt-4 text-t2">
           AFA es la asociación que le pone reglas a algo que todos hacemos sin
           darnos cuenta: farmear aura. Este es el torneo donde eso se
-          convierte en una competencia real — con inscripción, rondas,
+          convierte en una competencia real — con inscripción, videos,
           público y premio en plata.
         </p>
       </div>

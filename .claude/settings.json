@@ -89,7 +89,18 @@
       "Bash(curl -s -b /tmp/gestion_cookies2.txt -w '\\\\nHTTP %{http_code}\\\\n' -X PATCH http://localhost:3000/api/torneo/games/751d640b-157b-46e7-b3e7-fc73a1050a4c -H 'Content-Type: application/json' -d '{\"action\":\"close_voting\",\"winnerSide\":\"b\"}')",
       "Bash(node \"C:\\\\Users\\\\Emanuel\\\\.claude\\\\skills\\\\browser-automation\\\\browser.mjs\" http://localhost:3001/torneo --screenshot \"C:\\\\Users\\\\Emanuel\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Emanuel-OneDrive-Desktop-AFA---AURA\\\\66aa615b-71ae-4460-97f1-6e13dcd9a4a7\\\\scratchpad\\\\torneo.png\" --timeout 30000)",
       "Bash(node \"C:\\\\Users\\\\Emanuel\\\\.claude\\\\skills\\\\browser-automation\\\\browser.mjs\" \"http://localhost:3001/torneo/partido/3a6d8c51-2eb7-44f7-8411-6c17da74c1a7\" --screenshot \"C:\\\\Users\\\\Emanuel\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Emanuel-OneDrive-Desktop-AFA---AURA\\\\66aa615b-71ae-4460-97f1-6e13dcd9a4a7\\\\scratchpad\\\\partido.png\" --timeout 30000)",
-      "Bash(node \"C:\\\\Users\\\\Emanuel\\\\.claude\\\\skills\\\\browser-automation\\\\browser.mjs\" \"http://localhost:3001/mi-cupo/65c312b3-5c8b-4e42-9488-99b30094b1cd\" --screenshot \"C:\\\\Users\\\\Emanuel\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Emanuel-OneDrive-Desktop-AFA---AURA\\\\66aa615b-71ae-4460-97f1-6e13dcd9a4a7\\\\scratchpad\\\\micupo.png\" --timeout 30000)"
+      "Bash(node \"C:\\\\Users\\\\Emanuel\\\\.claude\\\\skills\\\\browser-automation\\\\browser.mjs\" \"http://localhost:3001/mi-cupo/65c312b3-5c8b-4e42-9488-99b30094b1cd\" --screenshot \"C:\\\\Users\\\\Emanuel\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Emanuel-OneDrive-Desktop-AFA---AURA\\\\66aa615b-71ae-4460-97f1-6e13dcd9a4a7\\\\scratchpad\\\\micupo.png\" --timeout 30000)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" \"https://ttwqgfyvgnalgcedjooe.supabase.co/storage/v1/object/public/match-videos/matches/2eb18926-4b58-47a4-9e72-04f3c8d8e858/5c76ea88-b25a-40cc-bc4a-c353f5813961/d9265c5d-2ec8-4f13-8b47-4b96040eea78.mp4\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" https://afa-three.vercel.app/torneo)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" https://gestion.afa-tuc.corelix.com.ar/login)",
+      "Bash(curl -s -I https://gestion.afa-tuc.corelix.com.ar/login)",
+      "Bash(curl -s -c /tmp/prod_gestion_cookies.txt -w \"\\\\nlogin HTTP %{http_code}\\\\n\" -X POST https://gestion.afa-tuc.corelix.com.ar/api/login -H \"Content-Type: application/json\" -d '{\"password\":\"afa-farmeo-2026\"}')",
+      "Bash(curl -s -b /tmp/prod_gestion_cookies.txt -w \"\\\\nHTTP %{http_code}\\\\n\" -X POST https://gestion.afa-tuc.corelix.com.ar/api/torneo/generar-ronda)",
+      "Bash(curl -s https://afa-three.vercel.app/torneo)",
+      "Bash(grep -o \"Ronda 1.\\\\{0,300\\\\}\")",
+      "Bash(curl -sv https://gestion.afa-tuc.corelix.com.ar/login -o /dev/null)",
+      "Bash(node \"C:\\\\Users\\\\Emanuel\\\\.claude\\\\skills\\\\browser-automation\\\\browser.mjs\" http://localhost:3000/ --script \"C:\\\\Users\\\\Emanuel\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Emanuel-OneDrive-Desktop-AFA---AURA\\\\66aa615b-71ae-4460-97f1-6e13dcd9a4a7\\\\scratchpad\\\\nav_widget_qa.mjs\")",
+      "Bash(node \"C:\\\\Users\\\\Emanuel\\\\.claude\\\\skills\\\\browser-automation\\\\browser.mjs\" http://localhost:3000/ --screenshot \"C:\\\\Users\\\\Emanuel\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Emanuel-OneDrive-Desktop-AFA---AURA\\\\66aa615b-71ae-4460-97f1-6e13dcd9a4a7\\\\scratchpad\\\\home_virtual.png\" --timeout 30000)"
     ],
     "additionalDirectories": [
       "c:\\Users\\Emanuel\\OneDrive\\Desktop\\AFA - AURA\\_tmp"

@@ -7,24 +7,24 @@ export default function Rules({ fee }: { fee: number }) {
       text: `Pagás tu entrada (${formatArs(fee)}) y quedás anotado en el bracket del torneo.`,
     },
     {
-      title: "El día del evento",
-      text: "Se arma el cuadro de enfrentamientos: duelos de a uno, cara a cara.",
+      title: "Te toca un rival",
+      text: "Se arma el bracket y te emparejan 1 contra 1 con otro farmeador.",
     },
     {
-      title: "Mostrás tu aura",
-      text: "Cada duelo es en vivo — bailás, posás, hacés lo tuyo. Sin libreto, sin ensayo.",
+      title: "Subís tu video",
+      text: "Grabás tu aura y lo subís en tu página personal antes de que cierre la ronda.",
     },
     {
-      title: "El público decide",
-      text: "La reacción de la gente en el momento define quién avanza a la siguiente ronda.",
+      title: "El público vota",
+      text: "La gente mira los dos videos del cruce y vota quién tiene más aura.",
     },
     {
-      title: "Rondas eliminatorias",
-      text: "Así, duelo tras duelo, hasta que quedan los dos finalistas.",
+      title: "Mejor de 2",
+      text: "Ganás el cruce si te llevás 2 juegos. Si queda 1-1, hay un video extra de desempate.",
     },
     {
       title: "Gran final",
-      text: "Un ganador, un segundo puesto. Los dos se llevan premio.",
+      text: "Así, cruce tras cruce, hasta los dos finalistas. Un ganador, un segundo puesto — los dos se llevan premio.",
     },
   ];
 

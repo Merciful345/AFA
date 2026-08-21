@@ -1,5 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { cookies } from "next/headers";
+import NavAccountWidget from "./NavAccountWidget";
+import { verifyVoterSessionCookie, VOTER_COOKIE_NAME } from "@/lib/voterSession";
+import { findVoterById } from "@/lib/voters";
 
 const anchorLinks = [
   { href: "/#que-es", label: "Qué es" },
@@ -12,7 +16,11 @@ const pageLinks = [
   { href: "/ranking", label: "Ranking" },
 ];
 
-export default function Nav() {
+export default async function Nav() {
+  const cookieStore = await cookies();
+  const voterId = verifyVoterSessionCookie(cookieStore.get(VOTER_COOKIE_NAME)?.value);
+  const voter = voterId ? await findVoterById(voterId) : null;
+
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-bg0/85 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
@@ -44,12 +52,15 @@ export default function Nav() {
           ))}
         </nav>
 
-        <Link
-          href="/#inscripcion"
-          className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-bg0 transition-colors hover:bg-accent-hover"
-        >
-          Inscribirme
-        </Link>
+        <div className="flex items-center gap-3">
+          <NavAccountWidget voter={voter ? { name: voter.name, points: voter.points } : null} />
+          <Link
+            href="/#inscripcion"
+            className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-bg0 transition-colors hover:bg-accent-hover"
+          >
+            Inscribirme
+          </Link>
+        </div>
       </div>
     </header>
   );
